@@ -10,18 +10,17 @@
             margin: 0;
             background-color: #1a1a2e;
             color: #e0e0e0;
-            text-align: center;
         }
         header {
             background-color: #4a266a;
             padding: 40px;
+            text-align: center;
             border-bottom: 4px solid #884499;
         }
         .container {
             max-width: 800px;
             margin: 30px auto;
             padding: 0 20px;
-            text-align: left;
         }
         .back-link {
             display: inline-block;
@@ -35,17 +34,16 @@
             padding: 20px;
             border-left: 10px solid #884499;
             border-radius: 5px;
-            position: relative;
         }
         h2 { color: #bb86fc; }
 
-        /* 小遊戲樣式 */
-        #game-container {
+        /* 互動小遊戲樣式 */
+        .game-container {
             text-align: center;
             margin-top: 20px;
             padding: 20px;
-            background: #0f3460;
-            border-radius: 15px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 10px;
         }
         #kanade-img {
             max-width: 250px;
@@ -56,17 +54,10 @@
         #kanade-img:active {
             transform: scale(0.95);
         }
-        #status-text {
-            font-size: 1.5rem;
-            color: #ff4d4d;
+        .game-status {
+            margin-top: 10px;
             font-weight: bold;
-            margin-left: 20px;
-            display: none; /* 初始隱藏 */
-        }
-        .game-hint {
-            font-size: 0.9rem;
-            color: #888;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
         }
     </style>
 </head>
@@ -85,58 +76,44 @@
             <h2>宵崎 奏 (Yoisaki Kanade)</h2>
             <p>團體內的作曲者。為了創作出「能拯救他人」的音樂而不斷努力。</p>
             
-            <div id="game-container">
-                <p class="game-hint">（點擊奏讓她吃完泡麵）</p>
-                <div style="display: flex; align-items: center; justify-content: center;">
-                    <img id="kanade-img" 
-                         src="https://pic.baike.soso.com/ugc/baike_pic/af69649557283624f2f455c1e9389e81/0" 
-                         alt="奏在吃泡麵" 
-                         onclick="eatNoodle()">
-                    <span id="status-text">要趕工了</span>
-                </div>
-                <p id="click-count">剩餘口數：10</p>
+            <div class="game-container" id="kanade-game">
+                <img id="kanade-img" 
+                     src="https://p3-pc-sign.douyinpic.com/tos-cn-i-0813/owCWeABHfDovdA636YvDCLsiAc1iEAzWAIgAbR~tplv-dy-aweme-images:q75.webp?biz_tag=aweme_images&from=327834062&lk3s=138a59ce&s=PackSourceEnum_SEARCH&sc=image&se=false&x-expires=1778601600&x-signature=%2Fql91pyLv%2Feo0k5skLaezYdwA%2B8%3D" 
+                     alt="奏在吃泡麵">
+                <p id="kanade-text" class="game-status">奏在吃泡麵</p>
             </div>
         </div>
 
-        <div class="member-card">
-            <h2>朝比奈 真冬 (Asahina Mafuyu)</h2>
-            <p>作詞擔當。雖然在學校是優等生，但在 Nightcord 中展現了失去情感的一面。</p>
-        </div>
-        </section>
+        <div class="member-card"><h2>朝比奈 真冬</h2><p>作詞擔當。</p></div>
+        <div class="member-card"><h2>東雲 繪名</h2><p>繪圖擔當。</p></div>
+        <div class="member-card"><h2>曉山 瑞希</h2><p>影片製作擔當。</p></div>
+    </section>
 </div>
 
 <script>
     let clicks = 0;
     const maxClicks = 10;
     const imgElement = document.getElementById('kanade-img');
-    const statusText = document.getElementById('status-text');
-    const countDisplay = document.getElementById('click-count');
+    const textElement = document.getElementById('kanade-text');
 
-    // 趕工模式的圖片網址
-    const workImg = "https://p3-pc-sign.douyinpic.com/tos-cn-i-0813c001/oAIAgEfeTByQruB7PZ8PAALIAAfG5PABA6jwiE~tplv-dy-aweme-images:q75.webp?biz_tag=aweme_images&from=327834062&lk3s=138a59ce&s=PackSourceEnum_SEARCH&sc=image&se=false&x-expires=1778576400&x-signature=HxnT3bgXfRMu1r9L5sPHNMoqd8M%3D";
-
-    function eatNoodle() {
+    imgElement.addEventListener('click', function() {
+        clicks++;
+        
         if (clicks < maxClicks) {
-            clicks++;
-            
-            // 每次點擊變暗 10% (使用 CSS filter)
-            // 點 1 次變 brightness(0.9), 點 10 次變 brightness(0)
+            // 每點擊一次變暗 10% (1 - 0.1 * clicks)
             let brightness = 1 - (clicks * 0.1);
             imgElement.style.filter = `brightness(${brightness})`;
+            textElement.innerText = `奏在吃泡麵 (還剩 ${maxClicks - clicks} 口)`;
+        } else {
+            // 點擊十次後變換
+            imgElement.src = "https://p3-pc-sign.douyinpic.com/tos-cn-i-0813c001/oAIAgEfeTByQruB7PZ8PAALIAAfG5PABA6jwiE~tplv-dy-aweme-images:q75.webp?biz_tag=aweme_images&from=327834062&lk3s=138a59ce&s=PackSourceEnum_SEARCH&sc=image&se=false&x-expires=1778576400&x-signature=HxnT3bgXfRMu1r9L5sPHNMoqd8M%3D";
+            imgElement.style.filter = "brightness(1)"; // 重置亮度
+            textElement.innerText = "要趕工了";
             
-            // 更新剩餘次數
-            countDisplay.innerText = `剩餘口數：${maxClicks - clicks}`;
-
-            // 當點滿 10 次
-            if (clicks === maxClicks) {
-                imgElement.src = workImg; // 切換圖片
-                imgElement.style.filter = "brightness(1)"; // 恢復亮度
-                statusText.style.display = "inline"; // 顯示文字
-                countDisplay.innerText = "吃完了！";
-                imgElement.onclick = null; // 停止遊戲
-            }
+            // 讓圖片點擊功能失效（趕工中不能再吃）
+            imgElement.style.cursor = "default";
         }
-    }
+    });
 </script>
 
 </body>
