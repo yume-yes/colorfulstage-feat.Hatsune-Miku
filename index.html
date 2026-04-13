@@ -5,102 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>世界計畫 繽紛舞台 - 角色介紹</title>
     <style>
-        body {
-            font-family: 'Helvetica Neue', Arial, 'Microsoft JhengHei', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            background-color: #f0f9ff;
-            color: #333;
-        }
-        header {
-            background-color: #33ccff;
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-        .profile-img {
-            display: block;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            border: 5px solid #fff;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            max-width: 200px;
-        }
-        .char-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        .char-card {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            border-top: 5px solid #33ccff;
-        }
-        .group-list li {
-            margin-bottom: 10px;
-            padding: 10px;
-            background: #fff;
-            border-radius: 5px;
-            list-style: none;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-        /* 25點專屬連結樣式 */
-        .link-25 {
-            color: #884499;
-            text-decoration: none;
-            font-weight: bold;
-            border-bottom: 2px dotted #884499;
-        }
-        .link-25:hover {
-            background-color: #884499;
-            color: white;
-        }
+        body { font-family: 'Helvetica Neue', Arial, 'Microsoft JhengHei', sans-serif; line-height: 1.6; margin: 0; background-color: #f0f9ff; color: #333; }
+        header { background-color: #33ccff; color: white; padding: 2rem; text-align: center; }
+        .container { max-width: 900px; margin: 20px auto; padding: 0 20px; }
+        .profile-img { display: block; margin: 0 auto 20px; border-radius: 50%; border: 5px solid #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 200px; }
+        .group-list { padding: 0; }
+        .group-list li { margin-bottom: 15px; padding: 15px; background: #fff; border-radius: 10px; list-style: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; }
+        .group-link { text-decoration: none; font-weight: bold; padding: 5px 15px; border-radius: 20px; color: white; transition: 0.3s; }
+        
+        /* 團體專屬顏色 */
+        .ln { border-left: 8px solid #3366ff; } .ln-btn { background-color: #3366ff; }
+        .mmj { border-left: 8px solid #88dd22; } .mmj-btn { background-color: #88dd22; }
+        .vbs { border-left: 8px solid #ee1166; } .vbs-btn { background-color: #ee1166; }
+        .ws { border-left: 8px solid #ff9900; } .ws-btn { background-color: #ff9900; }
+        .niigo { border-left: 8px solid #884499; } .niigo-btn { background-color: #884499; }
+        
+        .group-link:hover { opacity: 0.8; transform: scale(1.05); }
         footer { text-align: center; padding: 20px; color: #888; }
     </style>
 </head>
 <body>
-
 <header>
     <h1>世界計畫 繽紛舞台！</h1>
-    <p>介紹那些在音樂世界中閃耀的角色們</p>
+    <p>點擊下方按鈕查看各團體成員介紹</p>
 </header>
-
 <div class="container">
-    <img src="https://play-lh.googleusercontent.com/xzwhOQifajLeLvr4UQnU-D7FAS8ENUxnOwUoDzoT247td9a6qfYRLKuy3JIfwIcfKI1nB7cGGkVN6FWu9wDDeQ=w526-h296-rw" alt="世界計畫角色圖" class="profile-img">
-
-    <section>
-        <h2>核心虛擬歌手</h2>
-        <div class="char-grid">
-            <div class="char-card">
-                <h3>初音未來 (Hatsune Miku)</h3>
-                <p>存在於「世界」的虛擬歌手，引導著內心擁有煩惱的少年少女們。</p>
-            </div>
-        </div>
-    </section>
-
+    <img src="https://play-lh.googleusercontent.com/xzwhOQifajLeLvr4UQnU-D7FAS8ENUxnOwUoDzoT247td9a6qfYRLKuy3JIfwIcfKI1nB7cGGkVN6FWu9wDDeQ=w526-h296-rw" alt="PJSK" class="profile-img">
     <section>
         <h2>主要團體</h2>
         <ul class="group-list">
-            <li><strong>Leoneed</strong>：由兒時玩伴組成的樂團。</li>
-            <li><strong>MORE MORE JUMP!</strong>：帶出希望的偶像團體。</li>
-            <li><strong>Vivid BAD SQUAD</strong>：追求超越傳說的街頭團體。</li>
-            <li><strong>Wonderlands×Showtime</strong>：充滿活力的舞台劇團體。</li>
-            <li><strong><a href="nightcordat25.html" class="link-25">25點，Nightcord見。</a></strong>：深夜活動的神祕音樂團體。 (點擊進入介紹)</li>
+            <li class="ln"><span><strong>Leo/need</strong></span> <a href="leoneed.html" class="group-link ln-btn">查看成員</a></li>
+            <li class="mmj"><span><strong>MORE MORE JUMP!</strong></span> <a href="moremorejump.html" class="group-link mmj-btn">查看成員</a></li>
+            <li class="vbs"><span><strong>Vivid BAD SQUAD</strong></span> <a href="vividbadsquad.html" class="group-link vbs-btn">查看成員</a></li>
+            <li class="ws"><span><strong>Wonderlands×Showtime</strong></span> <a href="wonderlands.html" class="group-link ws-btn">查看成員</a></li>
+            <li class="niigo"><span><strong>25點，Nightcord見。</strong></span> <a href="nightcordat25.html" class="group-link niigo-btn">查看成員</a></li>
         </ul>
     </section>
 </div>
-
-<footer>
-    <p>© 2024 Project Sekai Fan Page</p>
-</footer>
-
+<footer><p>© 2026 Project Sekai Fan Page</p></footer>
 </body>
 </html>
