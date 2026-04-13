@@ -6,7 +6,7 @@
     <title>世界計畫 繽紛舞台 - 角色介紹</title>
     <style>
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, 'Microsoft JhengHei', sans-serif;
             line-height: 1.6;
             margin: 0;
             background-color: #f0f9ff;
@@ -44,7 +44,25 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             border-top: 5px solid #33ccff;
         }
-        h2 { color: #0088cc; }
+        .group-list li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #fff;
+            border-radius: 5px;
+            list-style: none;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        /* 25點專屬連結樣式 */
+        .link-25 {
+            color: #884499;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px dotted #884499;
+        }
+        .link-25:hover {
+            background-color: #884499;
+            color: white;
+        }
         footer { text-align: center; padding: 20px; color: #888; }
     </style>
 </head>
@@ -65,23 +83,23 @@
                 <h3>初音未來 (Hatsune Miku)</h3>
                 <p>存在於「世界」的虛擬歌手，引導著內心擁有煩惱的少年少女們。</p>
             </div>
-            </div>
+        </div>
     </section>
 
     <section>
         <h2>主要團體</h2>
-        <ul>
+        <ul class="group-list">
             <li><strong>Leoneed</strong>：由兒時玩伴組成的樂團。</li>
-            <li><strong>MORE MORE JUMP!</strong>：帶出希望的偶像團體。</li>
+            <li><strong>MORE MORE JUMP!</strong>：異色偶像團體。</li>
             <li><strong>Vivid BAD SQUAD</strong>：追求超越傳說的街頭團體。</li>
             <li><strong>Wonderlands×Showtime</strong>：充滿活力的舞台劇團體。</li>
-            <li><strong>25點，Nightcord見。</strong>：深夜活動的神祕音樂團體。</li>
+            <li><strong><a href="nightcordat25.html" class="link-25">25點，Nightcord見。</a></strong>：深夜活動的神祕音樂團體。 (點擊進入介紹)</li>
         </ul>
     </section>
 </div>
 
 <footer>
-    <p>&copy; 2024 Project Sekai Fan Page</p>
+    <p>© 2024 Project Sekai Fan Page</p>
 </footer>
 
 </body>
